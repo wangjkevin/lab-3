@@ -1,2 +1,2 @@
-# lab-3
-This is the repository for my APCSP Lab 3 2021-2022.
+# lab-4
+This is the repository for my APCSP Lab 4 2021-2022.
