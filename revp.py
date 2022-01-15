@@ -5,14 +5,19 @@ def revp(dnaString):
     reverseComplement = ""
     for base in dnaString:
         reverseComplement += dnaBasesDict[base]
-    reverseComplement = reverseComplement[::-1]
     
-    for i in dnaString:
-        for j in range(4, 13):
-            pass
-            
+    output = [] # list of tuples -- (position, length)
 
-    print(reverseComplement)
+    for i in range(len(dnaString)):
+        for j in range(4, 13):
+            if (i + j) > (len(dnaString)):
+                break
+
+            if dnaString[i:(i + j)] == reverseComplement[i:(i+j)][::-1]:
+                output.append((i + 1, len(dnaString[i:(i + j)])))
+
+    for k in output:
+        print(" ".join(map(str, k)))
 
 if __name__ == "__main__":
     # CHANGE CURRENT WORKING DIRECTORY TO THE DIRECTORY WHERE THIS FILE IS PLACED IN
@@ -24,6 +29,10 @@ if __name__ == "__main__":
     datasetFilePath = programFilePath + r"\datasets\rosalind_revp.txt"
     with open(datasetFilePath, "r") as f:
         lines = f.readlines()
+        new_lines = []
+        for line in lines:
+            new_lines.append(line.strip("\n"))
 
-        arg = lines[1]
+        arg = "".join(new_lines[1:])
+
         print(revp(arg))
