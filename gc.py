@@ -3,10 +3,10 @@ import os
 def gc(dna):
     gc_count = 0
     for i in dna:
-        if (i == "G") or (i == "C"):
+        if (i == "G") or (i == "C"): # catch if i equals G or C
             gc_count += 1
 
-    gc_content = (gc_count / len(dna)) * 100
+    gc_content = (gc_count / len(dna)) * 100 # multiply by 100 to get percentage
 
     return gc_content
 
@@ -53,7 +53,7 @@ if __name__ == '__main__':
         max_gc_content = 0
 
         for key, seq in output_dict.items():
-            if gc(seq) > max_gc_content:
+            if gc(seq) > max_gc_content: # changes max_gc_content and max_gc_content_ID when there is a new maximum
                 max_gc_content_ID = key
                 max_gc_content = gc(seq)
 

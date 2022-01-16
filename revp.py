@@ -10,10 +10,10 @@ def revp(dnaString):
 
     for i in range(len(dnaString)):
         for j in range(4, 13):
-            if (i + j) > (len(dnaString)):
+            if (i + j) > (len(dnaString)): # catch if the index goes out of range
                 break
 
-            if dnaString[i:(i + j)] == reverseComplement[i:(i+j)][::-1]:
+            if dnaString[i:(i + j)] == reverseComplement[i:(i + j)][::-1]: # reverse reverseCompliment since we are looking for palindromes
                 output.append((i + 1, len(dnaString[i:(i + j)])))
 
     for k in output:
@@ -33,6 +33,6 @@ if __name__ == "__main__":
         for line in lines:
             new_lines.append(line.strip("\n"))
 
-        arg = "".join(new_lines[1:])
+        arg = "".join(new_lines[1:]) # starting on index 1 to ignore ID name
 
         print(revp(arg))

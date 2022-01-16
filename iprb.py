@@ -1,4 +1,7 @@
 def iprb(k, m, n):
+    # k = homozygous dominant
+    # m = heterozygous
+    # n = homozygous recessive
     total = k + m + n
     prob = ( 
         2*((((k*m) / (total*(total-1)))) * (1/1)) # k,m
